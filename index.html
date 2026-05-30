@@ -1,0 +1,433 @@
+<!DOCTYPE html><html class="scroll-smooth dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Selection Soft | Coding the core of your business</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="favicon.png">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#2f3131",
+                        "on-tertiary-fixed": "#00201b",
+                        "error-container": "#93000a",
+                        "primary-container": "#f45f57",
+                        "inverse-on-surface": "#313030",
+                        "secondary-fixed": "#e2e2e2",
+                        "on-primary": "#680007",
+                        "on-secondary-container": "#b4b5b5",
+                        "secondary-container": "#454747",
+                        "on-tertiary-container": "#003029",
+                        "primary-fixed": "#ffdad6",
+                        "on-primary-container": "#5c0006",
+                        "secondary": "#c6c6c7",
+                        "surface-dim": "#131313",
+                        "tertiary-container": "#16a28e",
+                        "surface-container-highest": "#353534",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#e1bfbb",
+                        "on-surface": "#e5e2e1",
+                        "outline": "#a88a86",
+                        "surface-deep": "#000000",
+                        "outline-variant": "#59413e",
+                        "inverse-surface": "#e5e2e1",
+                        "on-background": "#e5e2e1",
+                        "surface-container-low": "#1c1b1b",
+                        "on-error": "#690005",
+                        "tertiary": "#63dac4",
+                        "surface-container": "#201f1f",
+                        "text-muted": "#A3A3A3",
+                        "surface": "#131313",
+                        "inverse-primary": "#af2e2b",
+                        "surface-container-high": "#2a2a2a",
+                        "tertiary-fixed-dim": "#63dac4",
+                        "on-primary-fixed": "#410003",
+                        "on-tertiary": "#00382f",
+                        "surface-bright": "#3a3939",
+                        "primary": "#ffb3ac",
+                        "border-subtle": "#262626",
+                        "on-tertiary-fixed-variant": "#005045",
+                        "surface-tint": "#ffb3ac",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-variant": "#353534",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed-variant": "#454747",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "background": "#131313",
+                        "tertiary-fixed": "#81f7df",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "on-primary-fixed-variant": "#8d1316",
+                        "coral-accent": "#EB5951"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "section-padding": "80px",
+                        "stack-sm": "8px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["JetBrains Mono"],
+                        "button": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "headline-xl": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "button": ["16px", {"lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-xl": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .coral-shadow:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .accordion-active .accordion-content {
+            max-height: 500px;
+        }
+        .accordion-active .accordion-icon {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface-container-lowest border-b border-border-subtle shadow-sm h-20 transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center px-gutter max-w-container-max mx-auto h-full">
+<div class="flex items-center gap-2">
+<img alt="Selection Soft Logo" class="h-12 w-auto" src="selectionsoft_logo.png">
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant hover:text-coral-accent transition-colors font-button text-button" href="#services">Services</a>
+<a class="text-on-surface-variant hover:text-coral-accent transition-colors font-button text-button" href="#faq">FAQ</a>
+<a class="text-on-surface-variant hover:text-coral-accent transition-colors font-button text-button" href="#contact">Contact</a>
+</div>
+<div></div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="pt-40 pb-20 px-gutter max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">
+<div class="space-y-stack-md">
+<span class="font-label-m text-label-m text-coral-accent uppercase tracking-widest">Global IT Partners</span>
+<h1 class="font-headline-xl text-headline-xl text-on-surface leading-none">
+                Coding the core of your business
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                Professional IT solutions bridging Japanese precision and Indian innovation. Specializing in monthly contracts and government tenders.
+            </p>
+</div>
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-coral-accent to-on-surface rounded-xl blur opacity-20 group-hover:opacity-30 transition duration-1000"></div>
+<div class="relative overflow-hidden rounded-xl bg-surface-container aspect-video">
+<img alt="Professional IT Workspace" class="w-full h-full object-cover grayscale-[0.2] group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5uvb7L-6t4MwAfvBaUJmoD3LEczwRT4Cah0XsNxhprKY2TmizLQOloPWmhGL8YETnn7bCkellqExmnwqkVtikNt7F6dlxvUwkY6KBaJPoC3jltXJMqYbl0iG309hKg8mceTus8REsWMgKaSObw8ifZ-IzZLm_cNGpAy9K5FSlICUvWvsZTalEWPGuO_u3tKO-VSOzjLB1jFeXihJIY8WXw0sCZek3nUMZhGGwlqy0DkUEY92x69YwRdEJhOheCdJljZ-MJvg3QRw">
+</div>
+</div>
+</header>
+<!-- Client Logos Section -->
+<section class="bg-surface-container-lowest border-y border-border-subtle py-12">
+<div class="max-w-container-max mx-auto px-gutter">
+<p class="text-center font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-10 opacity-60">Trusted by Global Leaders</p>
+<div class="flex flex-wrap justify-center md:justify-between items-center gap-12"><img alt="Partner Logo" class="h-8 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3I28VcXbW7__Rjeo7oPAfAkhMzFXBN4LRmdX97g0NGqVnudUE1SBIQkXWrri_VYNCBtYKJOBLUIA7ngMysYwrrWWQc7snevN4IFWWD6hfRKX5s_mnWTNuBVLRZC8ZtboMw_tHaZqjjecpv36Wq5rteJOWrWWRJivrAns_jnjKeaHo5cZT9ZOXUu9Hx8NEZESsizvbXFO-xjaDbhmlzIhcaFLECsmCeiLCKhkKlbF4Tfpix3T2RMGdXZ0v4p0DiLzY_tVe7B6OBgM"><img alt="Partner Logo" class="h-8 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3I28VcXbW7__Rjeo7oPAfAkhMzFXBN4LRmdX97g0NGqVnudUE1SBIQkXWrri_VYNCBtYKJOBLUIA7ngMysYwrrWWQc7snevN4IFWWD6hfRKX5s_mnWTNuBVLRZC8ZtboMw_tHaZqjjecpv36Wq5rteJOWrWWRJivrAns_jnjKeaHo5cZT9ZOXUu9Hx8NEZESsizvbXFO-xjaDbhmlzIhcaFLECsmCeiLCKhkKlbF4Tfpix3T2RMGdXZ0v4p0DiLzY_tVe7B6OBgM"><img alt="Partner Logo" class="h-8 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3I28VcXbW7__Rjeo7oPAfAkhMzFXBN4LRmdX97g0NGqVnudUE1SBIQkXWrri_VYNCBtYKJOBLUIA7ngMysYwrrWWQc7snevN4IFWWD6hfRKX5s_mnWTNuBVLRZC8ZtboMw_tHaZqjjecpv36Wq5rteJOWrWWRJivrAns_jnjKeaHo5cZT9ZOXUu9Hx8NEZESsizvbXFO-xjaDbhmlzIhcaFLECsmCeiLCKhkKlbF4Tfpix3T2RMGdXZ0v4p0DiLzY_tVe7B6OBgM"><img alt="Partner Logo" class="h-8 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3I28VcXbW7__Rjeo7oPAfAkhMzFXBN4LRmdX97g0NGqVnudUE1SBIQkXWrri_VYNCBtYKJOBLUIA7ngMysYwrrWWQc7snevN4IFWWD6hfRKX5s_mnWTNuBVLRZC8ZtboMw_tHaZqjjecpv36Wq5rteJOWrWWRJivrAns_jnjKeaHo5cZT9ZOXUu9Hx8NEZESsizvbXFO-xjaDbhmlzIhcaFLECsmCeiLCKhkKlbF4Tfpix3T2RMGdXZ0v4p0DiLzY_tVe7B6OBgM"><img alt="Partner Logo" class="h-8 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3I28VcXbW7__Rjeo7oPAfAkhMzFXBN4LRmdX97g0NGqVnudUE1SBIQkXWrri_VYNCBtYKJOBLUIA7ngMysYwrrWWQc7snevN4IFWWD6hfRKX5s_mnWTNuBVLRZC8ZtboMw_tHaZqjjecpv36Wq5rteJOWrWWRJivrAns_jnjKeaHo5cZT9ZOXUu9Hx8NEZESsizvbXFO-xjaDbhmlzIhcaFLECsmCeiLCKhkKlbF4Tfpix3T2RMGdXZ0v4p0DiLzY_tVe7B6OBgM"></div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-section-padding px-gutter max-w-container-max mx-auto" id="services">
+<div class="text-center mb-16 space-y-4">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Strategic IT Solutions</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">From legacy infrastructure to next-gen AI implementation, we provide the technical spine for enterprise growth.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Development & Web -->
+<div class="p-stack-lg border border-border-subtle bg-surface-container-low rounded-lg coral-shadow transition-all group">
+<span class="material-symbols-outlined text-coral-accent text-3xl mb-4 block" data-icon="code">code</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-on-surface">Development &amp; Web</h3>
+<ul class="space-y-3 font-body-md text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> Trending Development</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> Full-Stack Development</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> Website Development</li>
+</ul>
+</div>
+<!-- Infrastructure & Networks -->
+<div class="p-stack-lg border border-border-subtle bg-surface-container-low rounded-lg coral-shadow transition-all group">
+<span class="material-symbols-outlined text-coral-accent text-3xl mb-4 block" data-icon="lan">lan</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-on-surface">Infrastructure &amp; Networks</h3>
+<ul class="space-y-3 font-body-md text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> Database Systems (DBS)</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> Server Infrastructure</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> Networking Solutions</li>
+</ul>
+</div>
+<!-- AI & Intelligent Tech -->
+<div class="p-stack-lg border border-border-subtle bg-surface-container-low rounded-lg coral-shadow transition-all group">
+<span class="material-symbols-outlined text-coral-accent text-3xl mb-4 block" data-icon="psychology">psychology</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-on-surface">AI &amp; Intelligent Tech</h3>
+<ul class="space-y-3 font-body-md text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> AI &amp; ML Training</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> Intelligent Chatbots</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> Facial Recognition</li>
+</ul>
+</div>
+<!-- Business & Automation -->
+<div class="p-stack-lg border border-border-subtle bg-surface-container-low rounded-lg coral-shadow transition-all group">
+<span class="material-symbols-outlined text-coral-accent text-3xl mb-4 block" data-icon="settings_suggest">settings_suggest</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-on-surface">Business &amp; Automation</h3>
+<ul class="space-y-3 font-body-md text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> CRM Systems</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> Automation &amp; RPA</li>
+</ul>
+</div>
+<!-- Enterprise Security -->
+<div class="p-stack-lg border border-border-subtle bg-surface-container-low rounded-lg coral-shadow transition-all group">
+<span class="material-symbols-outlined text-coral-accent text-3xl mb-4 block" data-icon="shield_lock">shield_lock</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-on-surface">Enterprise Security</h3>
+<ul class="space-y-3 font-body-md text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> Endpoint Protection (EPP)</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> Security Audit</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="py-section-padding bg-surface-container-lowest border-y border-border-subtle">
+<div class="px-gutter max-w-container-max mx-auto">
+<div class="text-center mb-16 space-y-4">
+<span class="font-label-sm text-label-m text-coral-accent uppercase tracking-widest">Client Success</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">What Partners Say</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="p-8 bg-surface-container border border-border-subtle rounded-xl space-y-6 flex flex-col justify-between hover:border-coral-accent/30 transition-colors">
+<div class="space-y-4">
+<div class="flex text-coral-accent">
+<span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+</div>
+<p class="font-body-lg italic text-on-surface-variant">"Selection Soft transformed our legacy systems with remarkable speed. Their fusion of Japanese precision and technical depth is truly unique in the industry."</p>
+</div>
+<div>
+<p class="font-headline-md text-lg text-on-surface">Hiroshi Tanaka</p>
+<p class="font-label-sm text-on-surface-variant text-xs">CTO, Tokyo Logistics Solutions</p>
+</div>
+</div>
+<div class="p-8 bg-surface-container border border-border-subtle rounded-xl space-y-6 flex flex-col justify-between hover:border-coral-accent/30 transition-colors">
+<div class="space-y-4">
+<div class="flex text-coral-accent">
+<span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+</div>
+<p class="font-body-lg italic text-on-surface-variant">"The AI implementation provided by their Delhi team helped us automate 40% of our manual data entry. The ROI was visible within the first three months."</p>
+</div>
+<div>
+<p class="font-headline-md text-lg text-on-surface">Ananya Sharma</p>
+<p class="font-label-sm text-on-surface-variant text-xs">Director of Operations, FinEdge India</p>
+</div>
+</div>
+<div class="p-8 bg-surface-container border border-border-subtle rounded-xl space-y-6 flex flex-col justify-between hover:border-coral-accent/30 transition-colors">
+<div class="space-y-4">
+<div class="flex text-coral-accent">
+<span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+</div>
+<p class="font-body-lg italic text-on-surface-variant">"Their government tender assistance was invaluable. The technical documentation was flawless, and their security audits gave us the confidence to scale."</p>
+</div>
+<div>
+<p class="font-headline-md text-lg text-on-surface">Kenji Sato</p>
+<p class="font-label-sm text-on-surface-variant text-xs">Infrastructure Lead, Kyoto Smart City Initiative</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="bg-surface-container-low py-section-padding" id="faq">
+<div class="px-gutter max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-6 text-on-surface">Common Questions</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Understanding our process and how we bridge technical gaps for your business.</p>
+</div>
+<div class="lg:col-span-2 space-y-4">
+<!-- Q1 -->
+<div class="accordion-item bg-surface-container-highest border border-border-subtle rounded-lg overflow-hidden transition-all">
+<button class="w-full flex justify-between items-center p-6 text-left" onclick="toggleAccordion(this)">
+<span class="font-headline-md text-headline-md text-on-surface text-lg">What is the typical project timeline?</span>
+<span class="material-symbols-outlined accordion-icon transition-transform text-on-surface" data-icon="add">add</span>
+</button>
+<div class="accordion-content px-6 bg-surface-container">
+<div class="py-6 font-body-md text-on-surface-variant">
+                                Timelines vary based on scope, but standard web development typically takes 4-8 weeks, while enterprise AI implementations can span 3-6 months. We provide detailed milestones during the consultation.
+                            </div>
+</div>
+</div>
+<!-- Q2 -->
+<div class="accordion-item bg-surface-container-highest border border-border-subtle rounded-lg overflow-hidden transition-all">
+<button class="w-full flex justify-between items-center p-6 text-left" onclick="toggleAccordion(this)">
+<span class="font-headline-md text-headline-md text-on-surface text-lg">How do you ensure data security?</span>
+<span class="material-symbols-outlined accordion-icon transition-transform text-on-surface" data-icon="add">add</span>
+</button>
+<div class="accordion-content px-6 bg-surface-container">
+<div class="py-6 font-body-md text-on-surface-variant">
+                                Security is built into our core. We employ Endpoint Protection (EPP), regular security audits, and follow strict international standards for data handling and encryption at every layer.
+                            </div>
+</div>
+</div>
+<!-- Q3 -->
+<div class="accordion-item bg-surface-container-highest border border-border-subtle rounded-lg overflow-hidden transition-all">
+<button class="w-full flex justify-between items-center p-6 text-left" onclick="toggleAccordion(this)">
+<span class="font-headline-md text-headline-md text-on-surface text-lg">Can you integrate with existing systems?</span>
+<span class="material-symbols-outlined accordion-icon transition-transform text-on-surface" data-icon="add">add</span>
+</button>
+<div class="accordion-content px-6 bg-surface-container">
+<div class="py-6 font-body-md text-on-surface-variant">
+                                Yes. We specialize in "Core Business Coding," which involves building bridges between modern cloud applications and legacy infrastructure through custom APIs and robust middleware.
+                            </div>
+</div>
+</div>
+<!-- Q4 -->
+<div class="accordion-item bg-surface-container-highest border border-border-subtle rounded-lg overflow-hidden transition-all">
+<button class="w-full flex justify-between items-center p-6 text-left" onclick="toggleAccordion(this)">
+<span class="font-headline-md text-headline-md text-on-surface text-lg">What post-launch support do you offer?</span>
+<span class="material-symbols-outlined accordion-icon transition-transform text-on-surface" data-icon="add">add</span>
+</button>
+<div class="accordion-content px-6 bg-surface-container">
+<div class="py-6 font-body-md text-on-surface-variant">
+                                We offer tiered monthly maintenance contracts that include server monitoring, bug fixes, performance optimization, and regular security updates to keep your systems running at peak efficiency.
+                            </div>
+</div>
+</div>
+<!-- Q5 -->
+<div class="accordion-item bg-surface-container-highest border border-border-subtle rounded-lg overflow-hidden transition-all">
+<button class="w-full flex justify-between items-center p-6 text-left" onclick="toggleAccordion(this)">
+<span class="font-headline-md text-headline-md text-on-surface text-lg">What is the difference between AI and RPA?</span>
+<span class="material-symbols-outlined accordion-icon transition-transform text-on-surface" data-icon="add">add</span>
+</button>
+<div class="accordion-content px-6 bg-surface-container">
+<div class="py-6 font-body-md text-on-surface-variant">
+                                RPA (Robotic Process Automation) handles repetitive, rule-based tasks (like data entry). AI (Artificial Intelligence) handles tasks that require "thinking" or pattern recognition (like predictive analysis or language processing).
+                            </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact & Global Reach Section -->
+<section class="py-section-padding bg-surface" id="contact">
+<div class="px-gutter max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-stack-lg">
+<div>
+<span class="font-label-m text-label-m text-coral-accent uppercase tracking-widest mb-4 block">Get in Touch</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-6">Let's build the future together</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10">Whether it's a government tender or a mission-critical enterprise update, our experts are ready to consult on your next big project.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-coral-accent mt-1" data-icon="mail">mail</span>
+<div>
+<h4 class="font-label-sm text-on-surface uppercase mb-1">Email Us</h4>
+<a class="text-body-md text-on-surface-variant hover:text-coral-accent transition-colors" href="mailto:selectionsoft@gmail.com">selectionsoft@gmail.com</a>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-coral-accent mt-1" data-icon="location_on">location_on</span>
+<div>
+<h4 class="font-label-sm text-on-surface uppercase mb-1">Headquarters</h4>
+<p class="text-body-md text-on-surface-variant">A-26, Sector-19, Dwarka,<br>New Delhi, India-110075</p>
+</div>
+</div>
+</div>
+<div class="pt-4">
+<a class="inline-block bg-coral-accent text-white px-10 py-4 rounded-lg font-button text-button hover:bg-on-surface hover:text-background transition-all shadow-lg" href="mailto:selectionsoft@gmail.com">
+                        Email Us Directly
+                    </a>
+</div>
+</div>
+<div class="relative">
+
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-stack-lg bg-surface-container-lowest border-t border-border-subtle transition-all duration-300">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter px-gutter max-w-container-max mx-auto items-center">
+<div class="space-y-4">
+<div class="flex items-center gap-2">
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm opacity-90">
+                    © 2026 Selection Soft. All rights reserved.
+                </p>
+</div>
+<div class="flex flex-col md:items-end gap-4">
+<div class="flex gap-6">
+</div>
+</div>
+</div>
+</footer>
+<script>
+        function toggleAccordion(button) {
+            const item = button.parentElement;
+            const isActive = item.classList.contains('accordion-active');
+            
+            // Close all items
+            document.querySelectorAll('.accordion-item').forEach(el => {
+                el.classList.remove('accordion-active');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                item.classList.add('accordion-active');
+            }
+        }
+
+        // Simple header effect on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2');
+                nav.classList.remove('h-20');
+                nav.classList.add('h-16');
+                nav.classList.add('bg-opacity-90');
+                nav.classList.add('backdrop-blur-md');
+            } else {
+                nav.classList.remove('py-2');
+                nav.classList.remove('h-16');
+                nav.classList.add('h-20');
+                nav.classList.remove('bg-opacity-90');
+                nav.classList.remove('backdrop-blur-md');
+            }
+        });
+    </script>
+
+
+</body></html>
