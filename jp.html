@@ -1,0 +1,449 @@
+<!DOCTYPE html><html class="scroll-smooth dark" lang="ja"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Selection Soft | ビジネスの核心をコーディングする</title>
+<meta name="description" content="Selection Softは、日本の精密さとインドの革新性を融合させたプロフェッショナルなITソリューションを提供。月額契約・官公庁入札に対応しています。">
+<link rel="alternate" hreflang="en" href="https://selectionsoft.app/">
+<link rel="alternate" hreflang="ja" href="https://selectionsoft.app/ja/">
+<link rel="alternate" hreflang="x-default" href="https://selectionsoft.app/">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="/favicon.png">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#2f3131",
+                        "on-tertiary-fixed": "#00201b",
+                        "error-container": "#93000a",
+                        "primary-container": "#f45f57",
+                        "inverse-on-surface": "#313030",
+                        "secondary-fixed": "#e2e2e2",
+                        "on-primary": "#680007",
+                        "on-secondary-container": "#b4b5b5",
+                        "secondary-container": "#454747",
+                        "on-tertiary-container": "#003029",
+                        "primary-fixed": "#ffdad6",
+                        "on-primary-container": "#5c0006",
+                        "secondary": "#c6c6c7",
+                        "surface-dim": "#131313",
+                        "tertiary-container": "#16a28e",
+                        "surface-container-highest": "#353534",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#e1bfbb",
+                        "on-surface": "#e5e2e1",
+                        "outline": "#a88a86",
+                        "surface-deep": "#000000",
+                        "outline-variant": "#59413e",
+                        "inverse-surface": "#e5e2e1",
+                        "on-background": "#e5e2e1",
+                        "surface-container-low": "#1c1b1b",
+                        "on-error": "#690005",
+                        "tertiary": "#63dac4",
+                        "surface-container": "#201f1f",
+                        "text-muted": "#A3A3A3",
+                        "surface": "#131313",
+                        "inverse-primary": "#af2e2b",
+                        "surface-container-high": "#2a2a2a",
+                        "tertiary-fixed-dim": "#63dac4",
+                        "on-primary-fixed": "#410003",
+                        "on-tertiary": "#00382f",
+                        "surface-bright": "#3a3939",
+                        "primary": "#ffb3ac",
+                        "border-subtle": "#262626",
+                        "on-tertiary-fixed-variant": "#005045",
+                        "surface-tint": "#ffb3ac",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-variant": "#353534",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed-variant": "#454747",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "background": "#131313",
+                        "tertiary-fixed": "#81f7df",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "on-primary-fixed-variant": "#8d1316",
+                        "coral-accent": "#EB5951"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "section-padding": "80px",
+                        "stack-sm": "8px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["JetBrains Mono", "Noto Sans JP", "sans-serif"],
+                        "button": ["Hanken Grotesk", "Noto Sans JP", "sans-serif"],
+                        "headline-lg-mobile": ["Hanken Grotesk", "Noto Sans JP", "sans-serif"],
+                        "headline-lg": ["Hanken Grotesk", "Noto Sans JP", "sans-serif"],
+                        "headline-xl": ["Hanken Grotesk", "Noto Sans JP", "sans-serif"],
+                        "headline-md": ["Hanken Grotesk", "Noto Sans JP", "sans-serif"],
+                        "body-lg": ["Inter", "Noto Sans JP", "sans-serif"],
+                        "body-md": ["Inter", "Noto Sans JP", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "button": ["16px", {"lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-xl": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .coral-shadow:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .accordion-active .accordion-content {
+            max-height: 500px;
+        }
+        .accordion-active .accordion-icon {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface-container-lowest border-b border-border-subtle shadow-sm h-20 transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center px-gutter max-w-container-max mx-auto h-full">
+<div class="flex items-center gap-2">
+<img alt="Selection Soft ロゴ" class="h-12 w-auto" src="selectionsoft_logo.png">
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant hover:text-coral-accent transition-colors font-button text-button" href="#services">サービス</a>
+<a class="text-on-surface-variant hover:text-coral-accent transition-colors font-button text-button" href="#faq">よくある質問</a>
+<a class="text-on-surface-variant hover:text-coral-accent transition-colors font-button text-button" href="#contact">お問い合わせ</a>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm">
+<a class="text-on-surface-variant hover:text-coral-accent transition-colors px-2 py-1" href="index.html" hreflang="en" lang="en">EN</a>
+<span class="text-outline" aria-hidden="true">|</span>
+<span class="text-on-surface px-2 py-1" aria-current="page">日本語</span>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="pt-40 pb-20 px-gutter max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-stack-lg items-center">
+<div class="space-y-stack-md">
+<span class="font-label-m text-label-m text-coral-accent uppercase tracking-widest">グローバルITパートナー</span>
+<h1 class="font-headline-xl text-headline-xl text-on-surface leading-none">
+                貴社ビジネスの核心をコーディングする
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                日本の精密さとインドの革新性を融合させる、プロフェッショナルなITソリューション。月額契約と官公庁入札を専門としています。
+            </p>
+</div>
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-coral-accent to-on-surface rounded-xl blur opacity-20 group-hover:opacity-30 transition duration-1000"></div>
+<div class="relative overflow-hidden rounded-xl bg-surface-container aspect-video">
+<img alt="プロフェッショナルなITワークスペース" class="w-full h-full object-cover grayscale-[0.2] group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5uvb7L-6t4MwAfvBaUJmoD3LEczwRT4Cah0XsNxhprKY2TmizLQOloPWmhGL8YETnn7bCkellqExmnwqkVtikNt7F6dlxvUwkY6KBaJPoC3jltXJMqYbl0iG309hKg8mceTus8REsWMgKaSObw8ifZ-IzZLm_cNGpAy9K5FSlICUvWvsZTalEWPGuO_u3tKO-VSOzjLB1jFeXihJIY8WXw0sCZek3nUMZhGGwlqy0DkUEY92x69YwRdEJhOheCdJljZ-MJvg3QRw">
+</div>
+</div>
+</header>
+<!-- Client Logos Section -->
+<section class="bg-surface-container-lowest border-y border-border-subtle py-12">
+<div class="max-w-container-max mx-auto px-gutter">
+<p class="text-center font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-10 opacity-60">世界のリーディングカンパニーから信頼されています</p>
+<div class="flex flex-wrap justify-center md:justify-between items-center gap-12">
+    <img alt="DAD Co. Ltd." class="h-8 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity" src="dad.png">
+    <img alt="TMC" class="h-8 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity" src="toyota.png">
+    <img alt="DENSOロゴ" class="h-6 md:h-8 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" src="data:image/png;base64,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">
+    <span class="text-on-surface font-headline-md text-lg tracking-wider opacity-90 hover:opacity-100 transition-opacity whitespace-nowrap">DENSO TEN</span>
+    <img alt="Partner Logo" class="h-8 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity" src="jquad.png">
+    <img alt="Partner Logo" class="h-8 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity" src="ttdc.png">
+    <img alt="Partner Logo" class="h-8 w-auto brightness-0 invert opacity-70 hover:opacity-100 transition-opacity" src="jtekt.png">
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-section-padding px-gutter max-w-container-max mx-auto" id="services">
+<div class="text-center mb-16 space-y-4">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">戦略的ITソリューション</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">レガシーインフラから次世代AI導入まで、企業成長を支える技術基盤を提供します。</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Development & Web -->
+<div class="p-stack-lg border border-border-subtle bg-surface-container-low rounded-lg coral-shadow transition-all group">
+<span class="material-symbols-outlined text-coral-accent text-3xl mb-4 block" data-icon="code">code</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-on-surface">開発・Web</h3>
+<ul class="space-y-3 font-body-md text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> 最新技術開発</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> フルスタック開発</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> Webサイト開発</li>
+</ul>
+</div>
+<!-- Infrastructure & Networks -->
+<div class="p-stack-lg border border-border-subtle bg-surface-container-low rounded-lg coral-shadow transition-all group">
+<span class="material-symbols-outlined text-coral-accent text-3xl mb-4 block" data-icon="lan">lan</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-on-surface">インフラ・ネットワーク</h3>
+<ul class="space-y-3 font-body-md text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> データベースシステム(DBS)</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> サーバーインフラ</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> ネットワークソリューション</li>
+</ul>
+</div>
+<!-- AI & Intelligent Tech -->
+<div class="p-stack-lg border border-border-subtle bg-surface-container-low rounded-lg coral-shadow transition-all group">
+<span class="material-symbols-outlined text-coral-accent text-3xl mb-4 block" data-icon="psychology">psychology</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-on-surface">AI・先端技術</h3>
+<ul class="space-y-3 font-body-md text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> AI・機械学習トレーニング</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> インテリジェントチャットボット</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> 顔認証システム</li>
+</ul>
+</div>
+<!-- Business & Automation -->
+<div class="p-stack-lg border border-border-subtle bg-surface-container-low rounded-lg coral-shadow transition-all group">
+<span class="material-symbols-outlined text-coral-accent text-3xl mb-4 block" data-icon="settings_suggest">settings_suggest</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-on-surface">業務・自動化</h3>
+<ul class="space-y-3 font-body-md text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> CRMシステム</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> 自動化・RPA</li>
+</ul>
+</div>
+<!-- Enterprise Security -->
+<div class="p-stack-lg border border-border-subtle bg-surface-container-low rounded-lg coral-shadow transition-all group">
+<span class="material-symbols-outlined text-coral-accent text-3xl mb-4 block" data-icon="shield_lock">shield_lock</span>
+<h3 class="font-headline-md text-headline-md mb-4 text-on-surface">エンタープライズセキュリティ</h3>
+<ul class="space-y-3 font-body-md text-on-surface-variant">
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> エンドポイント保護(EPP)</li>
+<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-coral-accent rounded-full"></span> セキュリティ監査</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="py-section-padding bg-surface-container-lowest border-y border-border-subtle">
+<div class="px-gutter max-w-container-max mx-auto">
+<div class="text-center mb-16 space-y-4">
+<span class="font-label-sm text-label-m text-coral-accent uppercase tracking-widest">導入実績</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">パートナーの声</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="p-8 bg-surface-container border border-border-subtle rounded-xl space-y-6 flex flex-col justify-between hover:border-coral-accent/30 transition-colors">
+<div class="space-y-4">
+<div class="flex text-coral-accent">
+<span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+</div>
+<p class="font-body-lg italic text-on-surface-variant">「Selection Softは、驚くべきスピードで当社のレガシーシステムを刷新しました。日本の精密さと高度な技術力を融合させた同社のアプローチは、業界でも唯一無二の存在です。」</p>
+</div>
+<div>
+    <p class="font-headline-md text-lg text-on-surface">Hiroaki Kankeo</p>
+    <p class="font-label-sm text-on-surface-variant text-xs">トヨタ自動車</p>
+</div>
+</div>
+<div class="p-8 bg-surface-container border border-border-subtle rounded-xl space-y-6 flex flex-col justify-between hover:border-coral-accent/30 transition-colors">
+<div class="space-y-4">
+<div class="flex text-coral-accent">
+<span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+</div>
+<p class="font-body-lg italic text-on-surface-variant">「デリーチームによるAI導入支援のおかげで、手作業のデータ入力を40%自動化することができました。導入から3ヶ月で投資対効果を実感できました。」</p>
+</div>
+<div>
+    <p class="font-headline-md text-lg text-on-surface">Theint Hayman Hnin</p>
+    <p class="font-label-sm text-on-surface-variant text-xs">株式会社ダッド</p>
+</div>
+</div>
+<div class="p-8 bg-surface-container border border-border-subtle rounded-xl space-y-6 flex flex-col justify-between hover:border-coral-accent/30 transition-colors">
+<div class="space-y-4">
+<div class="flex text-coral-accent">
+<span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span><span class="material-symbols-outlined">star</span>
+</div>
+<p class="font-body-lg italic text-on-surface-variant">「官公庁入札のサポートは非常に貴重でした。技術文書は完璧で、セキュリティ監査のおかげで安心して事業を拡大することができました。」</p>
+</div>
+<div>
+<p class="font-headline-md text-lg text-on-surface">Unnati Mittal</p>
+<p class="font-label-sm text-on-surface-variant text-xs">CEO, Prewery</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="bg-surface-container-low py-section-padding" id="faq">
+<div class="px-gutter max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-6 text-on-surface">よくある質問</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">私たちのプロセスと、貴社の技術的な課題への橋渡し方法についてご紹介します。</p>
+</div>
+<div class="lg:col-span-2 space-y-4">
+<!-- Q1 -->
+<div class="accordion-item bg-surface-container-highest border border-border-subtle rounded-lg overflow-hidden transition-all">
+<button class="w-full flex justify-between items-center p-6 text-left" onclick="toggleAccordion(this)">
+<span class="font-headline-md text-headline-md text-on-surface text-lg">プロジェクトの標準的な期間はどれくらいですか?</span>
+<span class="material-symbols-outlined accordion-icon transition-transform text-on-surface" data-icon="add">add</span>
+</button>
+<div class="accordion-content px-6 bg-surface-container">
+<div class="py-6 font-body-md text-on-surface-variant">
+                                プロジェクトの範囲によって異なりますが、標準的なWeb開発は通常4〜8週間、エンタープライズ向けAI導入は3〜6ヶ月ほどが目安です。ご相談時に詳細なマイルストーンをご提示いたします。
+                            </div>
+</div>
+</div>
+<!-- Q2 -->
+<div class="accordion-item bg-surface-container-highest border border-border-subtle rounded-lg overflow-hidden transition-all">
+<button class="w-full flex justify-between items-center p-6 text-left" onclick="toggleAccordion(this)">
+<span class="font-headline-md text-headline-md text-on-surface text-lg">データセキュリティはどのように確保していますか?</span>
+<span class="material-symbols-outlined accordion-icon transition-transform text-on-surface" data-icon="add">add</span>
+</button>
+<div class="accordion-content px-6 bg-surface-container">
+<div class="py-6 font-body-md text-on-surface-variant">
+                                セキュリティは事業の根幹です。エンドポイント保護(EPP)の導入や定期的なセキュリティ監査を実施し、あらゆる層でデータ取り扱いと暗号化に関する厳格な国際基準を遵守しています。
+                            </div>
+</div>
+</div>
+<!-- Q3 -->
+<div class="accordion-item bg-surface-container-highest border border-border-subtle rounded-lg overflow-hidden transition-all">
+<button class="w-full flex justify-between items-center p-6 text-left" onclick="toggleAccordion(this)">
+<span class="font-headline-md text-headline-md text-on-surface text-lg">既存システムとの連携は可能ですか?</span>
+<span class="material-symbols-outlined accordion-icon transition-transform text-on-surface" data-icon="add">add</span>
+</button>
+<div class="accordion-content px-6 bg-surface-container">
+<div class="py-6 font-body-md text-on-surface-variant">
+                                はい、可能です。私たちは「コア・ビジネス・コーディング」を専門とし、カスタムAPIと堅牢なミドルウェアを通じて、最新のクラウドアプリケーションとレガシーインフラの橋渡しを行います。
+                            </div>
+</div>
+</div>
+<!-- Q4 -->
+<div class="accordion-item bg-surface-container-highest border border-border-subtle rounded-lg overflow-hidden transition-all">
+<button class="w-full flex justify-between items-center p-6 text-left" onclick="toggleAccordion(this)">
+<span class="font-headline-md text-headline-md text-on-surface text-lg">導入後のサポート体制について教えてください</span>
+<span class="material-symbols-outlined accordion-icon transition-transform text-on-surface" data-icon="add">add</span>
+</button>
+<div class="accordion-content px-6 bg-surface-container">
+<div class="py-6 font-body-md text-on-surface-variant">
+                                サーバー監視、バグ修正、パフォーマンス最適化、定期的なセキュリティアップデートを含む、段階制の月額保守契約をご提供しています。システムを常に最良の状態に保ちます。
+                            </div>
+</div>
+</div>
+<!-- Q5 -->
+<div class="accordion-item bg-surface-container-highest border border-border-subtle rounded-lg overflow-hidden transition-all">
+<button class="w-full flex justify-between items-center p-6 text-left" onclick="toggleAccordion(this)">
+<span class="font-headline-md text-headline-md text-on-surface text-lg">AIとRPAの違いは何ですか?</span>
+<span class="material-symbols-outlined accordion-icon transition-transform text-on-surface" data-icon="add">add</span>
+</button>
+<div class="accordion-content px-6 bg-surface-container">
+<div class="py-6 font-body-md text-on-surface-variant">
+                                RPA(ロボティック・プロセス・オートメーション)は、データ入力のような反復的でルールベースの作業を担います。一方でAI(人工知能)は、予測分析や言語処理のように「思考」やパターン認識を要するタスクに対応します。
+                            </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact & Global Reach Section -->
+<section class="py-section-padding bg-surface" id="contact">
+<div class="px-gutter max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-stack-lg">
+<div>
+<span class="font-label-m text-label-m text-coral-accent uppercase tracking-widest mb-4 block">お問い合わせ</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-6">共に未来を築きましょう</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10">官公庁入札から企業の基幹システム刷新まで、貴社の重要プロジェクトについて専門家がご相談を承ります。</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-coral-accent mt-1" data-icon="mail">mail</span>
+<div>
+<h4 class="font-label-sm text-on-surface uppercase mb-1">メールでのお問い合わせ</h4>
+<a class="text-body-md text-on-surface-variant hover:text-coral-accent transition-colors" href="mailto:selectionsoft@gmail.com">selectionsoft@gmail.com</a>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-coral-accent mt-1" data-icon="location_on">location_on</span>
+<div>
+<h4 class="font-label-sm text-on-surface uppercase mb-1">本社所在地</h4>
+<p class="text-body-md text-on-surface-variant">A-26, Sector-19, Dwarka,<br>New Delhi, India-110075</p>
+</div>
+</div>
+</div>
+<div class="pt-4">
+<a class="inline-block bg-coral-accent text-white px-10 py-4 rounded-lg font-button text-button hover:bg-on-surface hover:text-background transition-all shadow-lg" href="mailto:selectionsoft@gmail.com">
+                        メールを送信する
+                    </a>
+</div>
+</div>
+<div class="relative">
+
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-stack-lg bg-surface-container-lowest border-t border-border-subtle transition-all duration-300">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter px-gutter max-w-container-max mx-auto items-center">
+<div class="space-y-4">
+<div class="flex items-center gap-2">
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm opacity-90">
+                    © 2026 Selection Soft. All rights reserved.
+                </p>
+</div>
+<div class="flex flex-col md:items-end gap-4">
+<div class="flex gap-6">
+</div>
+</div>
+</div>
+</footer>
+<script>
+        function toggleAccordion(button) {
+            const item = button.parentElement;
+            const isActive = item.classList.contains('accordion-active');
+            
+            // Close all items
+            document.querySelectorAll('.accordion-item').forEach(el => {
+                el.classList.remove('accordion-active');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                item.classList.add('accordion-active');
+            }
+        }
+
+        // Simple header effect on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2');
+                nav.classList.remove('h-20');
+                nav.classList.add('h-16');
+                nav.classList.add('bg-opacity-90');
+                nav.classList.add('backdrop-blur-md');
+            } else {
+                nav.classList.remove('py-2');
+                nav.classList.remove('h-16');
+                nav.classList.add('h-20');
+                nav.classList.remove('bg-opacity-90');
+                nav.classList.remove('backdrop-blur-md');
+            }
+        });
+    </script>
+
+
+</body></html>
